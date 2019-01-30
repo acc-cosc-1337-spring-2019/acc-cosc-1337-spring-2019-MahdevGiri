@@ -1,6 +1,6 @@
-//Write the include statement for assign02 here
-//Write include for capturing input from keyboard and displaying output to screen
-
+#include "assign02.h"
+#include <iostream>
+using namespace std;
 int main() 
 {
 	//create a double variable named hours
@@ -16,6 +16,18 @@ int main()
 	//Example ---->>>     Gross pay: 150.00   
 
 
-	return 0;
-}
+	
+		double hours, hourly_rate, total_pay;
+		cout << "Enter hours: " << endl;
+		cin >> hours;
+		cout << "Enter hourly rate: " << endl;
+		cin >> hourly_rate;
+
+		total_pay = gross_pay(hours, hourly_rate);
+		cout << "Gross pay is: " << total_pay << endl;
+
+		return 0;
+	}
+
+
 
