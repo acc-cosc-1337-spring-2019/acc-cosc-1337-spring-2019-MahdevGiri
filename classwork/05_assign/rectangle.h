@@ -17,5 +17,5 @@ private:
 	int area;
 	int width;
 	int height;
-	void calculate_area();
+	int calculate_area();
 };

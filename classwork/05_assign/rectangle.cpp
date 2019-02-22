@@ -9,6 +9,7 @@ Rectangle::Rectangle(int width, int height):
 
 	width(width), height(height)
 {
+	calculate_area();
 }
 
  int Rectangle :: get_area() const
@@ -16,7 +17,8 @@ Rectangle::Rectangle(int width, int height):
 	return area;
 }
 
-void Rectangle::calculate_area()
+int Rectangle::calculate_area()
 {
 	area = width * height;
+	return area;
 }
