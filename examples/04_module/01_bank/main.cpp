@@ -5,8 +5,8 @@
 int main() 
 {
 	std::vector<BankAccount>accounts;
-	BankAccount account(12345689, 500);  //object1
-	BankAccount account1(55545689, 5000); //object2
+	BankAccount account(12345689, 500);  //object1  (this object calls the constructer for the first time)
+	BankAccount account1(55545689, 5000); //object2 (this object calls the constructer for the second time)
 
 	accounts.push_back(account);
 	accounts.push_back(account1);

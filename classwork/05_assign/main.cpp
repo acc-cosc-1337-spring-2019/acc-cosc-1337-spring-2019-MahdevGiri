@@ -15,9 +15,9 @@ Iterate the vector and display the Area for each Rectangle on one line and the t
 int main() 
 {
 	std::vector<Rectangle> rectangles;
-	Rectangle rectangle1(4, 5);
-	Rectangle rectangle2(10, 10);
-	Rectangle rectangle3(100, 10);
+	Rectangle rectangle1(4, 5);     // object 1 to pass the value w = 4 and h = 5
+	Rectangle rectangle2(10, 10);   // object 2 
+	Rectangle rectangle3(100, 10);  // object 3
 
 	rectangles.push_back(rectangle1);
 	rectangles.push_back(rectangle2);
@@ -27,6 +27,10 @@ int main()
 	{
 		std::cout << a.get_area() << "\n";
 	}
-	//std::cout << return_val();
+
+	std::cout <<"Recatangle1 is: "<< rectangle1.get_area() << " \n";
+	std::cout <<"Recatangle2 is: " << rectangle2.get_area() << " \n";
+	std::cout <<"Recatangle3 is: " << rectangle3.get_area() << " \n";
+	
 	return 0;
 }
