@@ -4,6 +4,11 @@
 	account_number(act), balance(bal)
 {
 }*/
+BankAccount::BankAccount()
+{
+
+}
+
 BankAccount::BankAccount(int act, double bal) // paramaterlized constructor or overload constructer
 {
 	account_number = act;
