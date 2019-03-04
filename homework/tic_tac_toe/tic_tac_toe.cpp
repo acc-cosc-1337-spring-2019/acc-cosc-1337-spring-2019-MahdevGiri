@@ -1,5 +1,6 @@
 #include "tic_tac_toe.h"
 
+
 void TicTacToe::start_game(std::string first_player)
 {
 	next_player = first_player;
@@ -13,19 +14,7 @@ std::string TicTacToe::get_player() const
 
 bool TicTacToe:: game_over()
 {
-	if (check_column_win())
-	{
-		return true;
-	}
-	else if (check_row_win())
-	{
-		return true;
-	}
-	else if (check_diagonal_win())
-	{
-		return true;
-	}
-	else if (check_board_full())
+	if (check_column_win()|| check_row_win()|| check_diagonal_win()|| check_board_full())
 	{
 		return true;
 	}
@@ -71,125 +60,47 @@ void TicTacToe::set_next_player()
 
 bool TicTacToe::check_column_win()
 {
+	for (std::size_t i = 0; i < 3; ++i)
+	{
+		if (pegs[i] == pegs[i + 3] && pegs[i + 3] == pegs[i + 6] &&
+			pegs[i + 6] != " ")
+		{
+			return true;
+		}
+	}
+	return false;
 	
-	if (pegs[0] =="X" && pegs[3]=="X" && pegs[6] == "X")
-	{
-		cout << "\nWinner is X "<<endl;
-		cout << "Win by colomn 1 ";
-		return true;
-		
-	}
-	else if (pegs[1] =="X" && pegs[4]=="X" && pegs[7] == "X")
-	{
-		cout << "\nWinner is X "<<endl ;
-		cout << "Win by colomn 2 ";
-		return true;
-	}
-	else if (pegs[2] == "X" && pegs[5] == "X" && pegs[8] == "X")
-	{
-		cout << "\nWinner is X" << endl;
-		cout << "Win by colomn 3 ";
-		return true;
-	}
-	if (pegs[0] == "O" && pegs[3] == "O" && pegs[6] == "O")
-	{
-		cout << "\nWinner is O" << endl;
-		cout << "Win by colomn 1 ";
-		return true;
-
-	}
-	else if (pegs[1] == "O" && pegs[4] == "O" && pegs[7] == "O")
-	{
-		cout << "\nWinner is O" << endl;
-		cout << "Win by colomn 2 ";
-		return true;
-	}
-	else if (pegs[2] == "O" && pegs[5] == "O" && pegs[8] == "O")
-	{
-		cout << "\nWinner is O" << endl;
-		cout << "Win by colomn 3 ";
-		return true;
-	}
-	else
-		return false;
 }
 
 bool TicTacToe::check_row_win()
 {
-	if (pegs[0] == "X" && pegs[1] == "X" && pegs[2] == "X")
+	
+	for (std::size_t i = 0; i < 9; i += 3)
 	{
-		cout << "\nWinner is X" << endl;
-		cout << "Win by row 1 ";
-		return true;
-
+		if (pegs[i] == pegs[i + 1] && pegs[i + 1] == pegs[i + 2] &&
+			pegs[i + 2] != " ")
+		{
+			return true;
+		}
 	}
-	else if (pegs[3] == "X" && pegs[4] == "X" && pegs[5] == "X")
-	{
-		cout << "\nWinner is X" << endl;
-		cout << "Win by row 2 ";
-		return true;
-	}
-	else if (pegs[6] == "X" && pegs[7] == "X" && pegs[8] == "X")
-	{
-		cout << "\nWinner is X" << endl;
-		cout << "Win by row 3 ";
-		return true;
-	}
-	if (pegs[0] == "O" && pegs[1] == "O" && pegs[2] == "O")
-	{
-		cout << "\nWinner is O" << endl;
-		cout << "Win by row 1 ";
-		return true;
-
-	}
-	else if (pegs[3] == "O" && pegs[4] == "O" && pegs[5] == "O")
-	{
-		cout << "\nWinner is O" << endl;
-		cout << "Win by row 2 ";
-		return true;
-	}
-	else if (pegs[6] == "O" && pegs[7] == "O" && pegs[8] == "O")
-	{
-		cout << "\nWinner is O" << endl;
-		cout << "Win by row 3 ";
-		return true;
-	}
-	else
-		return false;
+	return false;
 }
 
 bool TicTacToe::check_diagonal_win()
 {
-	if (pegs[0] == "X" && pegs[4] == "X" && pegs[8] == "X")
-	{
-		cout << "\nWinner is X" << endl;
-		cout << "Win by diagnol from top left ";
-		return true;
-
-	}
-	else if (pegs[2] == "X" && pegs[4] == "X" && pegs[6] == "X")
-	{
-		cout << "\nWinner is X" << endl;
-		cout << "Win by diagnol from bottom left ";
-		return true;
-	}
 	
-	if (pegs[0] == "O" && pegs[4] == "O" && pegs[8] == "O")
-	{
-		cout << "\nWinner is O" << endl;
-		cout << "Win by diagnol from top left ";
-		return true;
-
-	}
-	else if (pegs[2] == "O" && pegs[4] == "O" && pegs[6] == "O")
-	{
-		cout << "\nWinner is O" << endl;
-		cout << "Win by diagnol from bottom left ";
-		return true;
-	}
-	
-	else
-		return false;
+		if (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[8] != " ")
+		{
+			return true;
+		}
+		else if (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[6] != " ")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 }
 
 void TicTacToe:: clear_board()

@@ -14,7 +14,14 @@ Width	Height		Area
 100		10			1000
 
 */
-TEST_CASE("TESTING") 
+TEST_CASE("TESTING")
 {
-	//REQUIRE(return_val() == 1);
+	acc::Rectangle rec1(4, 5);
+	REQUIRE(rec1.get_area() == 20);
+
+	acc::Rectangle rec2(10, 10);
+	REQUIRE(rec2.get_area() == 100);
+
+	acc::Rectangle rec3(100, 10);
+	REQUIRE(rec3.get_area() == 1000);
 }

@@ -23,7 +23,7 @@ int main()
 			}
 
 		} while (board.game_over() == false);
-
+		cout << "winner\n";
 		cout << "\nDo you want to play again? " << endl;
 		cout << "Enter 'y' to play again or press any other key to exit " << endl;
 		cin >> userChoice;

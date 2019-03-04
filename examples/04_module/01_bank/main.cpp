@@ -5,15 +5,15 @@
 
 int main() 
 {
-	//BankAccount account(123, 100);
+	BankAccount account(123, 100);
 	//
 	//BankAccount copy = account; // copy the account object;
 	//
 	//account.deposit(50);
 	//BankAccount account(123456, 500);
-	//Customer customer(account);
-	//ATM atm(customer);
-	//atm.display_balance();
+	Customer customer(account);
+	ATM atm(customer);
+	atm.display_balance();
 
 
 	

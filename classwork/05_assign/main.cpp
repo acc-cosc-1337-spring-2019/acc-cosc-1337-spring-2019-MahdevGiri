@@ -14,10 +14,10 @@ Iterate the vector and display the Area for each Rectangle on one line and the t
 */
 int main() 
 {
-	std::vector<Rectangle> rectangles;
-	Rectangle rectangle1(4, 5);     // object 1 to pass the value w = 4 and h = 5
-	Rectangle rectangle2(10, 10);   // object 2 
-	Rectangle rectangle3(100, 10);  // object 3
+	std::vector<acc::Rectangle> rectangles;
+	acc::Rectangle rectangle1(4, 5);     // object 1 to pass the value w = 4 and h = 5
+	acc::Rectangle rectangle2(10, 10);   // object 2 
+	acc::Rectangle rectangle3(100, 10);  // object 3
 
 	rectangles.push_back(rectangle1);
 	rectangles.push_back(rectangle2);
