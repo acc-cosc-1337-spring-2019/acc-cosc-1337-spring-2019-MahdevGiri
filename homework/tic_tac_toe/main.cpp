@@ -1,7 +1,8 @@
 #include "tic_tac_toe.h"
-
+#include "tic_tac_toe_manager.h"
 int main() 
 {
+	TicTacToeManager manager;
 	char userChoice;
 	do {
 		int position = 0;
@@ -23,11 +24,14 @@ int main()
 			}
 
 		} while (board.game_over() == false);
-		cout << "winner\n";
+
+		manager.save_game(board);
 		cout << "\nDo you want to play again? " << endl;
 		cout << "Enter 'y' to play again or press any other key to exit " << endl;
 		cin >> userChoice;
 	} while (userChoice == 'y' || userChoice == 'Y');
+	
+	manager.display_history();
 	
 	cout << "Program has exited. Thank You.";
 
