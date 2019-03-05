@@ -1,13 +1,14 @@
 #include "bank_account.h"
 
-/*BankAccount::BankAccount(int act, double bal) :
-	account_number(act), balance(bal)
-{
-}*/
 BankAccount::BankAccount()
 {
 
 }
+
+/*BankAccount::BankAccount(int act, double bal) :
+	account_number(act), balance(bal)
+{
+}*/
 
 BankAccount::BankAccount(int act, double bal) // paramaterlized constructor or overload constructer
 {
@@ -32,6 +33,7 @@ void BankAccount::deposit(double amount)
 void BankAccount::withdraw(double amount)
 {
 	if (amount > 0 && balance >= amount)
+	// if (amount_greater_zero(amount) && balance >=amount)
 	{
 		balance -= amount;
 	}

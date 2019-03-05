@@ -10,14 +10,14 @@ class ATM
 
 public:
 	//ATM():account(1,5){ } //constructor
+	// passing the paramater c of datatype Customer
+	ATM(Customer c ) : new_customer(c) { } //constructor is defined and implemented in same file(.h file)
 
-	ATM(Customer c ) : customer(c) { } //constructor
-
-	void display_balance();
+	void display_balance(); // this function is referring to the Customer class function
 
 private:
 
-	Customer customer;
+	Customer new_customer; // creating private variable of type Customer datatype
 };
 
  #endif
