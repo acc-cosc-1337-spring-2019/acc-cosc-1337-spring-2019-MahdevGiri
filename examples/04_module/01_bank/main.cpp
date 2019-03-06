@@ -5,17 +5,35 @@
 
 int main() 
 {
-	BankAccount account(123, 100);
+	BankAccount account(123, 500);
 	Customer customer(account);
 	ATM atm(customer);
 	atm.display_balance();
+
+	display(account);
+
+	
+	BankAccount b(1, 900);
+	BankAccount c = account + b;
+	std::cout << "\n";
+	display(c);
+
+
+	std::cout << "\n";
+	 std::cout<<c;
+	// std::cin<<c;
 
 	//BankAccount account(123456, 500);
 	//BankAccount copy = account;   // copy the account object;
 	//std::cout<<"\n"<<copy.get_balance();
 	//account.deposit(50);
 	//std::cout<<"\n"<<copy.get_balance();
-	
+
+	/* for (auto tic_tac_toe : list)
+     {
+		 cout << tic_tac_toe << "\n";
+	 }
+	*/
 	
 
 
