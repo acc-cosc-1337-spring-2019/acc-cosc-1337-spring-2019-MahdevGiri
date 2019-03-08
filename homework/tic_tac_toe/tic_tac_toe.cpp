@@ -145,7 +145,7 @@ void TicTacToe::set_winner()
 
 }
 
-string TicTacToe::get_winner()
+string TicTacToe::get_winner()const
 {
 	
 	return winner;

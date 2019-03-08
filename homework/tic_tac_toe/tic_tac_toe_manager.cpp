@@ -16,7 +16,7 @@ void TicTacToeManager::update_winner_count(string win_ner)
 	}
 }
 
-void TicTacToeManager::save_game(TicTacToe b) 
+void TicTacToeManager::save_game(const TicTacToe b) 
 {
 	games.push_back(b);
 	update_winner_count(b.get_winner());
