@@ -6,3 +6,4 @@ std::ostream & operator<<(std::ostream & out, const Transcation & t)
 	out << t.type <<"  "<< t.amount <<"  "<< t.balance;
 	return out;
 }
+

@@ -1,11 +1,11 @@
-//#include"bank_account.h"
+
 #ifndef TRANSCATION_H
 #define TRANSCATION_H
 #include<string>
 
 class Transcation
 {
-	Transcation(std::string& type, double amount, double balance) :
+	Transcation(std::string t, double amt, double bal) :
 		type(t),amount(amt),balance(bal) {}
 	
 	friend std::ostream & operator<<(std::ostream & out, const Transcation & t);

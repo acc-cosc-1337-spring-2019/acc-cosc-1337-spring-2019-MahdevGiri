@@ -17,7 +17,7 @@ BankAccount::BankAccount(int act, double bal) // paramaterlized constructor or o
 	balance = bal;
 }
 
-// accesser function
+ //accesser function
 double BankAccount::get_balance () const
 {
 	transcations.push_back(Transcation("Inquiry", 0 , balance));
