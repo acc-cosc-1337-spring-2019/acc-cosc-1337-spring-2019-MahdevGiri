@@ -9,8 +9,9 @@ int main()
 	Customer customer(account);
 	ATM atm(customer);
 	atm.display_balance();
+	atm.deposit(50);
 
-	display(account);
+	
 
 	
 	BankAccount b(1, 900);
@@ -20,7 +21,7 @@ int main()
 
 
 	std::cout << "\n";
-	 std::cout<<c;
+	std::cout<<c;
 	// std::cin<<c;
 
 	//BankAccount account(123456, 500);
@@ -29,7 +30,7 @@ int main()
 	//account.deposit(50);
 	//std::cout<<"\n"<<copy.get_balance();
 
-	/* for (auto tic_tac_toe : list)
+	/* for (auto tic_tac_toe : list)  // for homework
      {
 		 cout << tic_tac_toe << "\n";
 	 }

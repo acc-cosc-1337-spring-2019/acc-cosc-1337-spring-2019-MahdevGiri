@@ -7,12 +7,12 @@ class Customer
 {
 public:
 	// passing the paramater act of datatype BankAccount
-	Customer(BankAccount act) : new_account(act){}  //constructor is defined and implemented in same file(.h file)
+	Customer(BankAccount& act) : new_account(act){}  //constructor is defined and implemented in same file(.h file)
 	double get_balance()const { return new_account.get_balance();} //function is defined and implemented in same file(.h file)
-	                                                              // this function is referring to the BankAccount class function
+	BankAccount &get_account();                                                       // this function is referring to the BankAccount class function
 private:
 	
-	BankAccount new_account;  // creating private variable of type BankAccount datatype
+	BankAccount &new_account;  // creating private variable of type BankAccount datatype
 };
 
 
