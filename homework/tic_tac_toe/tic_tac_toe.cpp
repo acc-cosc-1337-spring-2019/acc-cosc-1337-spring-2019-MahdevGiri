@@ -1,5 +1,5 @@
 #include "tic_tac_toe.h"
-
+#include<iostream>
 
 void TicTacToe::start_game(std::string first_player)
 {
@@ -34,22 +34,22 @@ void TicTacToe:: mark_board(int position)
 		set_next_player();  // to get the next player
 	}
 }
-void TicTacToe:: display_board() const
-{
-	int count = 0;
-	for (int i = 0; i < pegs.size(); ++i)
-	{
-		cout<<pegs[i]<<" | ";
-		count++;
-		if (count == 3)
-		{
-			cout << "\n";
-			count = 0;
-		}
-		
-	}
-	
-}
+//void TicTacToe:: display_board() const
+//{
+//	int count = 0;
+//	for (int i = 0; i < pegs.size(); ++i)
+//	{
+//		cout<<pegs[i]<<" | ";
+//		count++;
+//		if (count == 3)
+//		{
+//			cout << "\n";
+//			count = 0;
+//		}
+//		
+//	}
+//	
+//}
 
 // all the private functions are below
 void TicTacToe::set_next_player()
@@ -149,4 +149,41 @@ string TicTacToe::get_winner()const
 {
 	
 	return winner;
+}
+ // to cin the object of type TicTacToe if called
+std::istream & operator>>(std::istream & in, TicTacToe & b)
+{
+	int position;
+	cout << "Enter the position for X: " << endl;
+	in >> position;
+	b.mark_board(position);
+	cout << b;
+	if (b.game_over() == false)
+
+	{
+		cout << "Enter the position for O: " << endl;
+		in >> position;
+		b.mark_board(position);
+		cout << b;
+	}
+	return in;
+}
+
+
+// to cout the object of type TicTacToe if called
+std::ostream & operator <<(std::ostream & out,const TicTacToe & b1)
+{
+	int count = 0;
+		for (int i = 0; i < b1.pegs.size(); ++i)
+		{
+			out<<b1.pegs[i]<<" | ";
+			count++;
+			if (count == 3)
+			{
+				out << "\n";
+				count = 0;
+			}
+			
+		}
+	return out;
 }

@@ -10,18 +10,21 @@ int main()
 		board.start_game("X");
 		do
 		{
-			cout << "Enter the position for X: " << endl;
+			/*cout << "Enter the position for X: " << endl;
 			cin >> position;
 			board.mark_board(position);
-			board.display_board();
-			if (board.game_over() == false)
+			board.display_board();*/
+			
+			//if (board.game_over() == false)
 
-			{
-				cout << "Enter the position for O: " << endl;
+			//{
+				/*cout << "Enter the position for O: " << endl;
 				cin >> position;
 				board.mark_board(position);
-				board.display_board();
-			}
+				board.display_board();*/
+			//}
+
+			cin >> board;
 
 		} while (board.game_over() == false);
 
@@ -31,8 +34,8 @@ int main()
 		cin >> userChoice;
 	} while (userChoice == 'y' || userChoice == 'Y');
 	
-	manager.display_history();
-	
+	//manager.display_history();
+	cout << manager;
 	cout << "Program has exited. Thank You.";
 
 	cin.get();

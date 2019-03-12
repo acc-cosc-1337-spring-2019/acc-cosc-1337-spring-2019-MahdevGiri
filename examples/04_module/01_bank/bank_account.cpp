@@ -1,6 +1,7 @@
 #include "bank_account.h"
 #include<iostream>
 
+
 BankAccount::BankAccount()
 {
 
@@ -20,7 +21,8 @@ BankAccount::BankAccount(int act, double bal) // paramaterlized constructor or o
  //accesser function
 double BankAccount::get_balance () const
 {
-	transcations.push_back(Transcation("Inquiry", 0 , balance));
+	
+	transcations.push_back(Transcation m ("Inquiry", 0.0, balance));
 	return balance;
  }
 

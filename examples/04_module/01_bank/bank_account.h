@@ -18,7 +18,7 @@ public:
 	friend BankAccount operator + (BankAccount &act1, const BankAccount & act2);
 	friend std:: ostream & operator<<(std::ostream & out, const BankAccount & b);
 //friend std::istream & operator>>(std::istream & in, const BankAccount & b);
-
+	friend class Transcation;
 private:
 	std::vector<Transcation> transcations;
 	int account_number;
