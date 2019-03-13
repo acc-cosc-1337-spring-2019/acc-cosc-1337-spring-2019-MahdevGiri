@@ -1,24 +1,22 @@
 
 #include "customer.h"
 
+#include "customer.h"
+
 #ifndef ATM_H
 #define ATM_H
 
 class ATM
-
 {
-
 public:
-	//ATM():account(1,5){ } //constructor
-	// passing the paramater c of datatype Customer
-	ATM(Customer& c ) : new_customer(c) { } //constructor is defined and implemented in same file(.h file)
-
-	void display_balance(); // this function is referring to the Customer class function
+	ATM(Customer& c) : customer(c) {}
+	void display_balance();
 	void deposit(double amt);
 	void withdraw(double amt);
-private:
+	void display_transactions() const;
 
-	Customer& new_customer; // creating private variable of type Customer datatype
+private:
+	Customer& customer;
 };
 
- #endif
+#endif // !ATM_H

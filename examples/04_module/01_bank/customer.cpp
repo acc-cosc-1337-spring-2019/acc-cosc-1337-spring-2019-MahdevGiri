@@ -2,5 +2,5 @@
 
 BankAccount & Customer::get_account()
 {
-	return new_account;
+	return account;
 }

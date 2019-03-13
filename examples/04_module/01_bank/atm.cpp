@@ -1,20 +1,29 @@
-#include"atm.h"
+#include "atm.h"
 #include<iostream>
 
+using std::cout;
 
 
-void ATM:: display_balance()
+void ATM::display_balance()
 {
-	std::cout << "Balance: " << new_customer.get_account().get_balance(); // this get balance is referring to customer class function 
-}        
-                                                        // and customer class is getting balance from the BankAccount class function
+	cout << "Balance: " << customer.get_account().get_balance();
+}
+
 void ATM::deposit(double amt)
 {
-	BankAccount & act = new_customer.get_account();
-	act.deposit(amt);
+	customer.get_account().deposit(amt);
 }
 
 void ATM::withdraw(double amt)
 {
-	 new_customer.get_account().withdraw(amt);
+	customer.get_account().withdraw(amt);
+}
+
+void ATM::display_transactions() const
+{
+	cout << "Type   " << "Amount  " << " Balance  " << "\n";
+	for (auto tran : customer.get_account().get_transactions())
+	{
+		cout << tran;
+	}
 }

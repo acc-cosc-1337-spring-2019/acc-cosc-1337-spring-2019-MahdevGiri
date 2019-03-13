@@ -1,77 +1,66 @@
 #include "bank_account.h"
 #include<iostream>
 
-
-BankAccount::BankAccount()
-{
-
-}
-
-/*BankAccount::BankAccount(int act, double bal) :
+BankAccount::BankAccount(int act, double bal) :
 	account_number(act), balance(bal)
 {
-}*/
-
-BankAccount::BankAccount(int act, double bal) // paramaterlized constructor or overload constructer
-{
-	account_number = act;
-	balance = bal;
 }
-
- //accesser function
-double BankAccount::get_balance () const
+double BankAccount::get_balance()
 {
-	
-	transcations.push_back(Transcation m ("Inquiry", 0.0, balance));
+
+	Transaction t("Inquiry", 0, balance);
+	transactions.push_back(t);
 	return balance;
- }
+}
 
 void BankAccount::deposit(double amount)
 {
-	if (amount_greater_zero(amount))
+	if (amount > amount_greater_zero(amount))
 	{
 		balance += amount;
+		Transaction t("Deposit", amount, balance);
+		transactions.push_back(t);
 	}
+}
+
+void BankAccount::deposit(int pin, double amount)
+{
+
 }
 
 void BankAccount::withdraw(double amount)
 {
 	if (amount > 0 && balance >= amount)
-	// if (amount_greater_zero(amount) && balance >=amount)
 	{
 		balance -= amount;
+		Transaction t("Withdraw", amount, balance);
+		transactions.push_back(t);
 	}
 }
 
-// private function to check if the amount is greater than 0
 bool BankAccount::amount_greater_zero(double amount)
 {
-	if (amount > 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-
+	return amount > 0;
 }
 
 void display(const BankAccount& act)
 {
-	std::cout << "Account: "<<act.account_number<<"\n";
+	std::cout << "Account: " << act.account_number << "\n";
 	std::cout << "Balance: " << act.balance;
 }
 
-BankAccount operator + (BankAccount &act1, const BankAccount & act2)
+BankAccount operator+(BankAccount & act1,
+	const BankAccount & act2)
 {
 	act1.balance = act1.balance + act2.balance;
+
 	return act1;
 }
 
- std::ostream & operator<<(std::ostream & out, const BankAccount & b)
+std::ostream & operator<<(std::ostream & out, const BankAccount & b)
 {
 	out << "Account: " << b.account_number << "\n";
-	out << "Account: " << b.balance << "\n";
+	out << "Balance: " << b.balance;
+
 	return out;
 }
