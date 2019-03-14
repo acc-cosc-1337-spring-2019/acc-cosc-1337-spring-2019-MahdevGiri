@@ -1,10 +1,46 @@
 //#include "bank_account.h"
 //#include<vector>
+// abstraction
+// encapsulation
+// inheritance
 #include<iostream>
 #include"atm.h"
+#include"savings_account.h"
+#include"checking_account.h"
+#include<vector>
+
+using std::vector;
 
 int main() 
 {
+
+	SavingsAccount s(12345, 1000);  //saving account is called
+	std::cout << s.get_balance()<<"\n"; 
+
+
+
+	BankAccount& b = s;             //saving account is called
+	std::cout << b.get_balance()<<"\n";
+
+	CheckingAccount c(54321, 500);   //checking account is called
+	std::cout << c.get_balance() << "\n";
+
+	BankAccount& d = c;              //checking account is called
+	std::cout << d.get_balance()<<"\n";
+
+	vector < std::reference_wrapper<BankAccount>>accounts{ s,c };
+	for (auto & account : accounts)
+
+	{ //account must be unwrapped with .get() to get the instance of Account
+
+		std::cout << account.get().get_balance() << std::endl;
+
+	}
+
+	/*int num = 5;
+	int &num_ref = num;
+	std::cout << &num_ref<<"\n";
+
 	BankAccount account(123, 500);
 	Customer customer(account);
 	ATM atm(customer);
@@ -21,7 +57,7 @@ int main()
 
 
 	std::cout << "\n";
-	std::cout<<c;
+	std::cout<<c;*/
 	// std::cin<<c;
 
 	//BankAccount account(123456, 500);
