@@ -2,7 +2,7 @@
 
 void SavingsAccount::add_interest_earned()
 {
-	double interest_earned = get_balance() * time * interest_rate / 100;
+	double interest_earned = BankAccount::get_balance() * time * interest_rate / 100;
 	deposit(interest_earned);
 }
 
