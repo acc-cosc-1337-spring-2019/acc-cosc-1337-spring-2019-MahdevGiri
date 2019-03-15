@@ -19,23 +19,23 @@ int main()
 
 
 
-	BankAccount& b = s;             //saving account is called
+	BankAccount& b = s;             //saving account is called becoz of virtual function otherwise it woud be bankAccount
 	std::cout << b.get_balance()<<"\n";
 
 	CheckingAccount c(54321, 500);   //checking account is called
 	std::cout << c.get_balance() << "\n";
 
-	BankAccount& d = c;              //checking account is called
+	BankAccount& d = c;              //checking account is called becoz of virtual function otherwise it woud be bankAccount
 	std::cout << d.get_balance()<<"\n";
 
-	vector < std::reference_wrapper<BankAccount>>accounts{ s,c };
+	/*vector < std::reference_wrapper<BankAccount>>accounts{ s,c };
 	for (auto & account : accounts)
 
 	{ //account must be unwrapped with .get() to get the instance of Account
 
 		std::cout << account.get().get_balance() << std::endl;
 
-	}
+	}*/
 
 	/*int num = 5;
 	int &num_ref = num;
