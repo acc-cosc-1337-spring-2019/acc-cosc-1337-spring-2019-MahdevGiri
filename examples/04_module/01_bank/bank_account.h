@@ -11,11 +11,13 @@ class BankAccount
 {
 public:
 	BankAccount(int act, double bal);
-	virtual double get_balance();
+	virtual double get_balance();  // for run time polymorphism
 	void deposit(double amount);
 	void deposit(int pin, double amount);
 	void withdraw(double amount);
+	
 	vector<Transaction> get_transactions()const { return transactions; };
+	
 	friend void display(const BankAccount& act);
 	friend BankAccount operator +(BankAccount& act1,
 		const BankAccount& act2);

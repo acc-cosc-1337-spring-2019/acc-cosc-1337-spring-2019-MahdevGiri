@@ -14,17 +14,23 @@ using std::vector;
 int main() 
 {
 
-	SavingsAccount s(12345, 1000);  //saving account is called
+	SavingsAccount s(1234,1000);  //saving account is called
 	std::cout << s.get_balance()<<"\n"; 
-
-
+	
+	BankAccount *ptr1 = &s;            //saving account is called becoz of virtual function otherwise it woud be bankAccount
+	std::cout<<ptr1->get_balance()<<"\n";
 
 	BankAccount& b = s;             //saving account is called becoz of virtual function otherwise it woud be bankAccount
 	std::cout << b.get_balance()<<"\n";
 
+	
+
 	CheckingAccount c(54321, 500);   //checking account is called
 	std::cout << c.get_balance() << "\n";
 
+	BankAccount *ptr2 = &c;
+	std::cout<<ptr2->get_balance()<<"\n"; //checking account is called becoz of virtual function otherwise it woud be bankAccount
+	
 	BankAccount& d = c;              //checking account is called becoz of virtual function otherwise it woud be bankAccount
 	std::cout << d.get_balance()<<"\n";
 
@@ -39,9 +45,9 @@ int main()
 
 	/*int num = 5;
 	int &num_ref = num;
-	std::cout << &num_ref<<"\n";
+	std::cout << &num_ref<<"\n";*/
 
-	BankAccount account(123, 500);
+	/*BankAccount account(123, 500);
 	Customer customer(account);
 	ATM atm(customer);
 	atm.display_balance();
@@ -58,6 +64,7 @@ int main()
 
 	std::cout << "\n";
 	std::cout<<c;*/
+
 	// std::cin<<c;
 
 	//BankAccount account(123456, 500);
