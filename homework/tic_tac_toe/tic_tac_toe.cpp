@@ -66,14 +66,7 @@ void TicTacToe::set_next_player()
 
 bool TicTacToe::check_column_win()
 {
-	for (std::size_t i = 0; i < 3; ++i)
-	{
-		if (pegs[i] == pegs[i + 3] && pegs[i + 3] == pegs[i + 6] &&
-			pegs[i + 6] != " ")
-		{
-			return true;
-		}
-	}
+	
 	return false;
 	
 }
@@ -81,32 +74,14 @@ bool TicTacToe::check_column_win()
 bool TicTacToe::check_row_win()
 {
 	
-	for (std::size_t i = 0; i < 9; i += 3)
-	{
-		if (pegs[i] == pegs[i + 1] && pegs[i + 1] == pegs[i + 2] &&
-			pegs[i + 2] != " ")
-		{
-			return true;
-		}
-	}
+	
 	return false;
 }
 
 bool TicTacToe::check_diagonal_win()
 {
 	
-		if (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[8] != " ")
-		{
-			return true;
-		}
-		else if (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[6] != " ")
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+	return false;
 }
 
 void TicTacToe:: clear_board()
@@ -164,7 +139,7 @@ std::istream & operator>>(std::istream & in, TicTacToe & b)
 		cout << "Enter the position for O: " << endl;
 		in >> position;
 		b.mark_board(position);
-		cout << b;
+		//cout << b;
 	}
 	return in;
 }
@@ -178,10 +153,22 @@ std::ostream & operator <<(std::ostream & out,const TicTacToe & b1)
 		{
 			out<<b1.pegs[i]<<" | ";
 			count++;
-			if (count == 3)
+			if (b1.pegs.size() == 9)
 			{
-				out << "\n";
-				count = 0;
+				if (count == 3)
+				{
+					out << "\n";
+					count = 0;
+				}
+			}
+			else
+			{
+				if (count == 4)
+				{
+					out << "\n";
+					count = 0;
+				}
+
 			}
 			
 		}
