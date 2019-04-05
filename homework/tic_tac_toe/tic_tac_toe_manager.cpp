@@ -1,4 +1,6 @@
 #include "tic_tac_toe_manager.h"
+#include"tic_tac_toe_3.h"
+#include"tic_tac_toe_4.h"
 //Write class function implementations here
 void TicTacToeManager::update_winner_count(string win_ner)
 {
@@ -16,10 +18,10 @@ void TicTacToeManager::update_winner_count(string win_ner)
 	}
 }
 
-void TicTacToeManager::save_game(const TicTacToe b) 
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& game)
 {
-	games.push_back(b);
-	update_winner_count(b.get_winner());
+	update_winner_count(game->get_winner());
+	games.push_back(std::move(game));
 }
 
 //void TicTacToeManager::display_history()const
@@ -35,13 +37,26 @@ void TicTacToeManager::save_game(const TicTacToe b)
 	
 //}
 
+std::unique_ptr<TicTacToe> TicTacToeManager::get_game(int game_type)
+{
+	if (game_type == 3)
+	{
+		return std::make_unique<TicTacToe3>();
+	}
+	else
+	{
+		return std::make_unique<TicTacToe3>();
+	}
+}
+
+
 // to cout the object of type TicTacToeManager
 std::ostream & operator << (std::ostream & out, const TicTacToeManager & m)
 {
-	for (auto g : m.games)
+	for (auto &game : m.games)
 	{
 		
-		out << g << "\n";
+		out << *game << "\n";
 	}
 	out << "X_wins: " << m.x_win << "\n";
 	out << "O_wins: " << m.o_win << "\n";

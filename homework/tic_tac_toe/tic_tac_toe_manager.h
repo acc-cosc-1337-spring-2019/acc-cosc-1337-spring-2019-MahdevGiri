@@ -2,6 +2,7 @@
 #include<string>
 #include<vector>
 #include<iostream>
+#include<memory>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -13,13 +14,15 @@ using std::vector;
 class TicTacToeManager
 {
 public:
-	void save_game(const TicTacToe b);
+	void save_game(std::unique_ptr<TicTacToe>& game);
+	std::unique_ptr<TicTacToe>get_game(int game_type);
+
 	/*void display_history()const;*/
 	friend std::ostream & operator << (std::ostream & out, const TicTacToeManager & m);
 
 
 private:
-	std::vector<TicTacToe> games;
+	std::vector<std::unique_ptr<TicTacToe>> games;
 	int x_win = 0;
 	int o_win = 0;
 	int ties = 0;

@@ -29,13 +29,13 @@ TEST_CASE("Test the game_over function for TicTacToe3")
 
 TEST_CASE("Test first player X for TicTacToe3")
 {
-	TicTacToe tic_tac_toe(3);
-	tic_tac_toe.start_game("X");
+	TicTacToe *  tic_tac_toe = new TicTacToe3();
+	tic_tac_toe->start_game("X");
 
-	REQUIRE(tic_tac_toe.get_player() == "X");
+	REQUIRE(tic_tac_toe->get_player() == "X");
 
-	tic_tac_toe.start_game("O");
-	REQUIRE(tic_tac_toe.get_player() == "O");
+	tic_tac_toe->start_game("O");
+	REQUIRE(tic_tac_toe->get_player() == "O");
 }
 
 TEST_CASE("Test win by first column for TicTacToe3")
@@ -255,13 +255,13 @@ TEST_CASE("Test the game_over function for TicTacToe4")
 
 TEST_CASE("Test first player X for TicTacToe4")
 {
-	TicTacToe tic_tac_toe(4);
-	tic_tac_toe.start_game("X");
+	TicTacToe *tic_tac_toe = new TicTacToe4();
+	tic_tac_toe->start_game("X");
 
-	REQUIRE(tic_tac_toe.get_player() == "X");
+	REQUIRE(tic_tac_toe->get_player() == "X");
 
-	tic_tac_toe.start_game("O");
-	REQUIRE(tic_tac_toe.get_player() == "O");
+	tic_tac_toe->start_game("O");
+	REQUIRE(tic_tac_toe->get_player() == "O");
 }
 
 TEST_CASE("Test win by 1st column for TicTacToe4")
