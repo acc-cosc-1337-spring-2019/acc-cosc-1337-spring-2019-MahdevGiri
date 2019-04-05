@@ -22,23 +22,22 @@ int main()
 		else
 		{
 		 board = new TicTacToe4();
-		}
+		}*/
 	
 
-		board->start_game("X");*/
+		
 		tic_tac_toe = manager->get_game(boardSize);
+		tic_tac_toe->start_game("X");
 		do
 		{
-			
-
-			cout<< *tic_tac_toe;
+			cout << *tic_tac_toe;
 			cin >> *tic_tac_toe;
 
 		} while (tic_tac_toe->game_over() == false);
 
 		//manager.save_game(*board);
 		manager->save_game(std::move(tic_tac_toe));
-
+		cout << "\nWinner\n";
 		//delete board;
 		cout << "\nDo you want to play again? " << endl;
 		cout << "Enter 'y' to play again or press any other key to exit and see RESULT " << endl;
@@ -47,7 +46,7 @@ int main()
 	
 	//manager.display_history();
 	cout << "\nAll THE GAMES(WITH RESULTS) ARE LISTED HERE: \n";
-	cout << manager;
+	cout << *manager;
 	cout << "Program has exited. Thank You.";
 
 	cin.get();
