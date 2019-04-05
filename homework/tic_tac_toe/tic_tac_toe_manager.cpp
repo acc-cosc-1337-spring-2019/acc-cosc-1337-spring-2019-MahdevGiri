@@ -45,7 +45,7 @@ std::unique_ptr<TicTacToe> TicTacToeManager::get_game(int game_type)
 	}
 	else
 	{
-		return std::make_unique<TicTacToe3>();
+		return std::make_unique<TicTacToe4>();
 	}
 }
 
