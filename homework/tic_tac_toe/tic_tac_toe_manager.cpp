@@ -49,6 +49,18 @@ std::unique_ptr<TicTacToe> TicTacToeManager::get_game(int game_type)
 	}
 }
 
+const std::vector<std::unique_ptr<TicTacToe>>&TicTacToeManager::get_games()
+{
+	return games;
+}
+
+void TicTacToeManager::get_winner_totals(int & x, int & o, int & c)
+{
+	x = x_win;
+	o = o_win;
+	c = ties;
+}
+
 
 // to cout the object of type TicTacToeManager
 std::ostream & operator << (std::ostream & out, const TicTacToeManager & m)

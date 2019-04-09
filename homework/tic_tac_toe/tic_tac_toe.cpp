@@ -107,6 +107,10 @@ string TicTacToe::get_winner()const
 	
 	return winner;
 }
+const std::vector<std::string>& TicTacToe::get_pegs()
+{
+	return pegs;
+}
  // to cin the object of type TicTacToe if called
 std::istream & operator>>(std::istream & in, TicTacToe & b)
 {
