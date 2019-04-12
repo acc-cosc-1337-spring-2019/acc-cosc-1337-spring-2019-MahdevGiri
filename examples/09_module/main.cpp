@@ -7,10 +7,10 @@
 
 int main() 
 {
-	std::vector < Temperature > temps{ Temperature(3, 79.5), Temperature(2, 85.9)};
+	std::vector < Temperature > temps{ Temperature(3, 79.5), Temperature(4, 85.9)};
 
 	TemperatureData data("temps.txt");
-	data.save_reading(temps);
+	data.save_readings(temps);
 
 	auto readings = data.get_readings();
 

@@ -13,7 +13,7 @@ class TemperatureData
 {
 public:
 	TemperatureData(std::string f): file_name(f) {}
-	void save_reading(const std::vector<Temperature> & reading);
+	void save_readings(const std::vector<Temperature>& readings);
 
 	std::vector<Temperature> get_readings();
 private:
