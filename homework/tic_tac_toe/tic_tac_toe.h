@@ -13,9 +13,12 @@ using std::vector;
 class TicTacToe 
 {
 public:
+
 	TicTacToe(int size):
 	 pegs( size*size," " )
 	{}
+
+	TicTacToe(std::vector<string> s);
 	void start_game(std::string first_player);
 	std::string get_player() const;
 	bool game_over();
