@@ -1,13 +1,13 @@
 #include "temperature_data.h"
 
-
+// to write on file ("file_name"), the value of hour and temperature, from each object(of type temperature) 
 void TemperatureData::save_readings(const std::vector<Temperature>& readings)
 {
-	fstream file(file_name, std::ios::out | std::ios::app);
+	std::ofstream file(file_name, std::ios::app); 
+	// std::ios::app helps to write on the same file again without erasing the the current document 
 
 
-
-	for (auto r : readings)
+	for (auto r : readings)   // in our case obj1 and obj2
 
 	{
 
@@ -20,20 +20,21 @@ void TemperatureData::save_readings(const std::vector<Temperature>& readings)
 	file.close();
 }
 
+// to read from file("file_name")
 std::vector<Temperature> TemperatureData::get_readings()
 {
 	std::vector<Temperature> readings;
 
-	fstream file(file_name, std::ios::in);
+	std::ifstream file(file_name);//, std::ios::in);
 	
 	int h;
 	double t;
-	while (file >> h >> t)
+	while (file >> h >> t)  // as long as input is available from the file
 	{
 		readings.push_back(Temperature(h, t));
 	}
 	file.close();
-	return readings;
+	return readings; // return the readings vector of type temperature
 
 	/*
 	for homework:
