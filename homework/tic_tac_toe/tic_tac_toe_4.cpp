@@ -1,6 +1,10 @@
 //cpp
 #include"tic_tac_toe_4.h"
 
+TicTacToe4::TicTacToe4(std::vector<std::string> p) : TicTacToe(4)  //
+{
+	 determine_winner();
+}
 bool TicTacToe4::check_column_win()
 {
 	for (std::size_t i = 0; i < 4; ++i)

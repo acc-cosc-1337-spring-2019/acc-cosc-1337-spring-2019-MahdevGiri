@@ -11,14 +11,19 @@ writing and append.
 */
 void TicTacToeData::save_game(const vector<string>& pegs)
 {
-	std::ofstream file(file_name, std::ios::app);
-	for (auto p : pegs)
+	fstream file(file_name, std::ios::out | std::ios::app);
+
+	for (auto p :pegs)
 	{
 		file << p;
 		file << "\n";
 	}
+	
 	file.close();
 }
+
+
+
 
 /*
 Read the file with fstream and file_name, open file for input(reading).
@@ -51,29 +56,33 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
 	vector<unique_ptr<TicTacToe>> games;
 
 	std::ifstream file(file_name);
-	vector<string>data;
+	vector<string>game;
 	if (file.is_open())
 	{
 		string line = {};
 		while (getline(file, line))
 		{
-			data.push_back(line);
-			std::cout << line << '\n';
+			for (auto ch : line)
+			{
+				game.push_back(std::string(1, ch));
+			}
 		}
 
-		std::unique_ptr<TicTacToe>game;
 		
-		if (game->get_pegs().size() == 9)
+		std::unique_ptr<TicTacToe> board;
+		if (line.size() == 9)
 		{
-			std::unique_ptr<TicTacToe3> game = std::make_unique<TicTacToe3>();
+			board = std::make_unique<TicTacToe3>(game);
+		
 		}
 		else
 		{
-			std::unique_ptr<TicTacToe4> game = std::make_unique<TicTacToe4>();
+		    board = std::make_unique<TicTacToe4>(game);
+			
 		}
 
-		games.push_back(game);
-     
+		
+		games.push_back(move(board));
 		file.close();
 	}
 	else
@@ -83,3 +92,4 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
 
 	return games;
 }
+

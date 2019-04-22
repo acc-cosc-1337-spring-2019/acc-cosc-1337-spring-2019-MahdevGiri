@@ -34,10 +34,10 @@ int main()
 			cin >> *tic_tac_toe;
 
 		} while (tic_tac_toe->game_over() == false);
-
+		cout << "\nWinner: "<<tic_tac_toe->get_winner();
 		//manager.save_game(*board);
-		manager->save_game(std::move(tic_tac_toe));
-		cout << "\nWinner\n";
+		manager->save_game(tic_tac_toe);    //(std::move(tic_tac_toe));
+		
 		//delete board;
 		cout << "\nDo you want to play again? " << endl;
 		cout << "Enter 'y' to play again or press any other key to exit and see RESULT " << endl;

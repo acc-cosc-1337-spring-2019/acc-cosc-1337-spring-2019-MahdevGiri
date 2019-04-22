@@ -160,3 +160,37 @@ std::ostream & operator <<(std::ostream & out,const TicTacToe & b1)
 		}
 	return out;
 }
+
+void TicTacToe::determine_winner()  //
+{
+	if (check_board_full() == true)
+	{
+		winner = "C";
+	}
+	else
+	{
+		int x = 0;
+		int o = 0;
+		for (auto s : pegs)
+		{
+			if (s == "X")
+			{
+				x++;
+			}
+			else if(s == "O")
+			{
+				o++;
+			}
+
+		}
+		if (x > o)
+		{
+			winner = "X";
+		}
+		else
+		{
+			winner = "O";
+		}
+
+	}
+}

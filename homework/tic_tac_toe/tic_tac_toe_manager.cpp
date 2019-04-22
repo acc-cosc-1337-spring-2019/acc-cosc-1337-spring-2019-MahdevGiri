@@ -2,6 +2,32 @@
 #include"tic_tac_toe_3.h"
 #include"tic_tac_toe_4.h"
 //Write class function implementations here
+
+TicTacToeManager::TicTacToeManager()  //
+{
+	games = data.get_games();
+	set_scores();
+}
+
+void TicTacToeManager::set_scores()//
+{
+	for (auto & g : games)
+	{
+		if (g->get_winner() == "X")
+		{
+			x_win++;
+		}
+		else if (g->get_winner() == "O")
+		{
+			o_win++;
+		}
+		else
+		{
+			ties++;
+		}
+	}
+}
+
 void TicTacToeManager::update_winner_count(string win_ner)
 {
 	if (win_ner == "X")
@@ -22,6 +48,7 @@ void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& game)
 {
 	update_winner_count(game->get_winner());
 	games.push_back(std::move(game));
+	data.save_game(game->get_pegs());  //
 }
 
 //void TicTacToeManager::display_history()const

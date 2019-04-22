@@ -1,5 +1,9 @@
 //cpp
 #include "tic_tac_toe_3.h"
+TicTacToe3::TicTacToe3(std::vector<std::string> p) : TicTacToe(3) //
+{
+	 determine_winner();
+}
 
 bool TicTacToe3::check_column_win()
 {
