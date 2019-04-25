@@ -1,7 +1,7 @@
 //cpp
 #include"tic_tac_toe_4.h"
 
-TicTacToe4::TicTacToe4(std::vector<std::string> p) : TicTacToe(4)  //
+TicTacToe4::TicTacToe4(std::vector<std::string> p) : TicTacToe(pegs)  //
 {
 	 determine_winner();
 }

@@ -54,8 +54,7 @@ Create unique ptr of TicTacToe boards
 vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
 {
 	vector<unique_ptr<TicTacToe>> games;
-
-	std::ifstream file(file_name);
+	fstream file(file_name, std::ios::in);
 	vector<string>game;
 	if (file.is_open())
 	{
