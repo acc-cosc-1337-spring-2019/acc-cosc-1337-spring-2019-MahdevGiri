@@ -31,20 +31,28 @@ int main()
 	*/
 
 	
-	int number = 10;
+	//int number = 10;
 
-	// pointer can store the address
-	int* numberPtr = &number;
+	//// pointer can store the address
+	//int* numberPtr = &number;
 
-	ref(number,numberPtr);
+	//ref(number,numberPtr);
 
-	std::cout<<number;
+	//std::cout<<number;
 
-	std::cout << "\naddress of number: " << &number;
-	std::cout << "\n value is " << *&number;
+	//std::cout << "\naddress of number: " << &number;
+	//std::cout << "\n value is " << *&number;
 
-	std::cout << "\nAddress of numberPtr: " << &numberPtr <<"\nvalue stored at address pointer is:"<<numberPtr<< "\n direffrence to get value  " << *numberPtr;
-	
+	//std::cout << "\nAddress of numberPtr: " << &numberPtr <<"\nvalue stored at address pointer is:"<<numberPtr<< "\n direffrence to get value  " << *numberPtr;
+	//
+
+
+	int* hold_return_value;
+	int num = 5;
+
+	hold_return_value = return_pointer(num);
+
+
 
 	return 0;
 }
