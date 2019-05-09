@@ -12,5 +12,8 @@ int main()
 
 	char name1[5] = "Mary";
 	name1[4] = '\0';
+	cout << endl;
+	cout << name1 << std::endl;
+
 	return 0;
 }
