@@ -12,4 +12,5 @@ int main()
 
 	char name1[5] = "Mary";
 	name1[4] = '\0';
+	return 0;
 }
