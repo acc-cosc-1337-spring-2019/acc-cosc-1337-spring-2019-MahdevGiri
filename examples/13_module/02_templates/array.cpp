@@ -12,6 +12,12 @@ Array<T>::Array(int s):size(s)
 template <class T>
 Array<T>::Array(const Array &aray)
 {
+	size = right.size;
+	numbers = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		numbers[i] = right.numbers[i];
+	}
 
 }
 

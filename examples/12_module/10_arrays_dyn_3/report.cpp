@@ -7,7 +7,7 @@ Report::Report()
 	// read from file
 	for (int i = 0; i < 5; ++i)
 	{
-		accounts[i] = new BankAccount(i);
+		accounts[i] = new BankAccount(i*100);
 	}
 	// iterate to update balance
 	
@@ -30,6 +30,6 @@ void Report::display()
 {
 	for (int i = 0; i < 5; ++i)
 	{
-		std::cout << accounts[i]->get_balance() << "\n";
+		std::cout << accounts[i].get_balance() << "\n";
 	}
 }

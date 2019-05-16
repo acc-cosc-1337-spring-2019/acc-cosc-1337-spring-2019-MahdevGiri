@@ -55,20 +55,17 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
 {
 	vector<unique_ptr<TicTacToe>> games;
 	fstream file(file_name, std::ios::in);
-	vector<string>game;
+	
 	if (file.is_open())
 	{
 		string line = {};
-		while (getline(file, line))
+		while (std::getline(file, line))
 		{
-			for (auto ch : line)
-			{
-				game.push_back(std::string(1, ch));
-			}
+			vector<string>current_line;
 		}
 
 		
-		std::unique_ptr<TicTacToe> board;
+		/*std::unique_ptr<TicTacToe> board;
 		if (line.size() == 9)
 		{
 			board = std::make_unique<TicTacToe3>(game);
@@ -81,7 +78,7 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
 		}
 
 		
-		games.push_back(move(board));
+		games.push_back(move(board));*/
 		file.close();
 	}
 	else
